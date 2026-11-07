@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AduanController;
+use App\Http\Controllers\Api\CheckoutController;
 
 
 // Produk routes yang dilindungi middleware sanctum auth[cite: 32]
@@ -14,6 +16,8 @@ Route::apiResource('products', ProductController::class);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/categories', [CategoryController::class, 'index']);
+// Checkout: mengurangi stok produk yang terjual (Publik)
+Route::post('/checkout', [CheckoutController::class, 'store']);
 Route::get('/aduans', [AduanController::class, 'index']);
 Route::post('/aduans', [AduanController::class, 'store']);
 Route::post('/users', [AduanController::class, 'storeUser']);
