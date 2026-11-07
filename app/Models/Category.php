@@ -6,15 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    // jika primary key bukan 'id', tentukan di sini
     protected $primaryKey = 'category_id';
 
-    // fields yang boleh diisi massal
-    protected $fillable = ['category'];
+    protected $fillable = [
+        'name', // Sesuaikan jika nama kolom di migration Anda berbeda (misal: 'nama_kategori')
+    ];
 
+    // Relasi ke tabel products
     public function products()
     {
-        // relasi ke tabel products
         return $this->hasMany(Product::class, 'category_id');
+    }
+
+    // Relasi ke tabel aduans (jika jenis_aduan berelasi ke tabel categories)
+    public function aduans()
+    {
+        return $this->hasMany(Aduan::class, 'jenis_aduan_id', 'category_id');
     }
 }

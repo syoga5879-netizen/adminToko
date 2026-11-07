@@ -36,6 +36,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function aduans()
+{
+    return $this->hasMany(Aduan::class, 'user_id');
+}
+
     /**
      * Get the attributes that should be cast.
      *

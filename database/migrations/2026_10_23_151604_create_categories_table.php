@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('category_id')->autoIncrement();
             $table->string('category', 100);
             $table->timestamps();
+            $table->foreignId('jenis_aduan_id')->constrained('categories', 'category_id')->onDelete('cascade');
         });
     }
 
