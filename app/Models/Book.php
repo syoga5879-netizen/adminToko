@@ -16,14 +16,13 @@ class Book extends Model
         'publication_year',
         'isbn',
         'stock',
-        'category_id',
+        'book_category_id', // Pastikan bernama book_category_id
         'cover_img',
         'synopsis',
     ];
 
-    // Relasi ke tabel categories
-    public function category()
+    public function bookCategory()
     {
-        return $this->belongsTo(Category::class, 'category_id', 'category_id');
+        return $this->belongsTo(BookCategory::class, 'book_category_id', 'book_category_id');
     }
 }

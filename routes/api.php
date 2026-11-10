@@ -11,6 +11,7 @@ use App\Http\Controllers\BookController;
 
 
 
+
 // Produk routes yang dilindungi middleware sanctum auth[cite: 32]
 Route::apiResource('products', ProductController::class);
 
