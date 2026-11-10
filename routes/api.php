@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AduanController;
 use App\Http\Controllers\Api\CheckoutController;
+use App\Http\Controllers\BookController;
+
 
 
 // Produk routes yang dilindungi middleware sanctum auth[cite: 32]
@@ -27,3 +29,6 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logo
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/books', [BookController::class, 'index']);
+Route::post('/books', [BookController::class, 'store']);
+Route::delete('/books/{id}', [BookController::class, 'destroy']);

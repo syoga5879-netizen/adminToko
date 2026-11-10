@@ -10,9 +10,10 @@ class Aduan extends Model
     protected $primaryKey = 'aduan_id';
 
     // Fields yang boleh diisi massal
-    protected $fillable = [
+   protected $fillable = [
         'user_id',
         'jenis_aduan_id',
+        'category_id', // Pastikan baris ini ada
         'prioritas',
         'teks',
     ];
